@@ -1,9 +1,11 @@
 ﻿
 
 using ConsoleApp6.AppSemaphoreSlim;
+using ConsoleApp6.AppTransactionScope;
 
 var semaphoroSlim = new AppSemaphoreSlim();
-
+var transactionScopeAsync = new AppTransactionScopeAsync();
+var transactionScopeSync = new AppTransactionScopeSync();
 
 var retorno = false;
 
@@ -14,6 +16,8 @@ do
     Console.WriteLine("Qual aplicação deseja iniciar?");
     Console.WriteLine(@"
 1 - SemaphoroSlim
+2 - TransactionScope em Async
+3 - TransactionScope em Sync
     ");
 
 
@@ -25,8 +29,8 @@ do
     var retornoApp = numeroApp switch
     {
         1 => await semaphoroSlim.IniciarApp(),
-        2 => false,
-
+        2 => await transactionScopeAsync.IniciarAppAsync(),
+        3 => transactionScopeSync.IniciarAppSync(),
         _ => false
     };
 
