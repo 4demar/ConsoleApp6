@@ -1,9 +1,9 @@
 ﻿
-namespace ConsoleApp6.AppSemaphoreSlim
+namespace Servico
 {
-    public class AppSemaphoreSlim
+    public class SemaphoreSlimService
     {
-        private readonly SemaphoreSlim semaphore = new SemaphoreSlim(2);
+        private readonly SemaphoreSlim semaphore = new(2);
         public async Task<bool> IniciarApp()
         {
             // Libera 2 thread por execução
@@ -30,7 +30,7 @@ namespace ConsoleApp6.AppSemaphoreSlim
                 });
 
                 // Ou aplique o semaphore no metodo 
-                // await ExecutarRecurso(taskNumber);
+                // await ExecutarRecurso(taskNumber)
             }
 
             // Aguarda todas as tarefas concluírem
@@ -59,11 +59,8 @@ namespace ConsoleApp6.AppSemaphoreSlim
                 semaphore.Release(); // Libera o recurso
             }
         }
-
-
     }
 }
-
 
 //Exemplo de Execução
 //    Task 1 esperando para acessar o recurso.

@@ -1,20 +1,22 @@
-﻿namespace ConsoleApp6.AppClasseGenericaPaginacao.Repo
+﻿using Domain.Models;
+
+namespace Infra.Banco.Repositorio.BaseRepositorio
 {
-    public class BaseRepositorio<T> where T : class, new()
+    public class BasePaginacao<T> where T : class, new()
     {
         private readonly List<T> _data;
 
-        public BaseRepositorio()
+        public BasePaginacao()
         {
-            _data = new List<T>();
+            _data = [];
         }
 
         // Método para obter dados paginados
-        public BasePaginacao<T> BuscarPaginaDados(int page, int pageSize)
+        public ResultModelPagination<T> BuscarPaginaDados(int page, int pageSize)
         {
             var total = _data.Count;
             var data = _data.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-            return new BasePaginacao<T>(data, total);
+            return new ResultModelPagination<T>(data, total);
         }
 
         // Método para adicionar um item
