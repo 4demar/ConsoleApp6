@@ -13,9 +13,10 @@ namespace ConsoleApp6Tests
             var produtoObtido = new Produto { Nome = "Banana", Codigo = 30 };
 
             produtoObtido.Should().BeEquivalentTo(produtoEsperado);
-            
+
             //não Utilizar para objeto iguais
             //produtoEsperado.Should().Be(produtoObtido);
+            //Assert.Equal(produtoEsperado, produtoObtido);
         }
 
         [Fact]
@@ -63,7 +64,7 @@ namespace ConsoleApp6Tests
         }
 
         [Fact]
-        public void CompararDatas_DeveIgnorarSegundos()
+        public void CompararDatas_AplicandoTolerancia()
         {
             var baseTime = DateTime.Now;
             var dataEsperada = baseTime.AddMinutes(-10);
