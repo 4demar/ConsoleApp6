@@ -1,0 +1,19 @@
+[
+  {
+    "NomeMetodo": "RelatorioAbastecimento",
+    "AgendadorRelatorio": [
+      {
+        "NomeRelatorio": "Relatorio Abastecimento",
+        "DiasSemana": "0-7",
+        "Dia": "",
+        "Periodo": "dia",
+        "QtdPeriodo": 20
+      }
+    ],
+    "ListaEnderecoEmail": [
+      "henrique.fortes@havan.com.br"
+    ],
+    "UrlTeams": "",
+    "StatusNotificacao": 2
+  }
+]
