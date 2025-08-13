@@ -1,5 +1,6 @@
 ﻿using Domain.Interfaces.Repositorio;
 using Domain.Interfaces.Service;
+using Dominio.Interface.Service;
 using Infra.Banco.Repositorio;
 using Microsoft.Extensions.DependencyInjection;
 using Service;
@@ -20,6 +21,7 @@ namespace Infra.IoC
             services.AddTransient<IEpcServico, EpcServico>();
             services.AddTransient<IProdutoServico, ProdutoServico>();
             services.AddTransient<IPermissaoServico, PermissaoServico>();
+            services.AddTransient<IExcelServico, ExcelServico>();
             services.AddTransient<Calculadora>();
             services.AddTransient<SemaphoreSlimService>();
             services.AddTransient<TransactionScopeService>();

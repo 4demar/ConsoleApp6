@@ -30,9 +30,10 @@ static async Task Executar(IServiceProvider serviceProvider)
             2 - TransactionScope em Async
             3 - TransactionScope em Sync
             4 - Montar Paginação Produto
+            5 - Montar Relatório Base
         ");
 
-        var valorDigitado = "4"; // Console.ReadLine()
+        var valorDigitado = "6"; // Console.ReadLine()
         int.TryParse(valorDigitado, out int numeroApp);
 
         Console.Clear();
@@ -43,6 +44,7 @@ static async Task Executar(IServiceProvider serviceProvider)
             2 => await transactionScopeService.IniciarAppAsync(),
             3 => transactionScopeService.IniciarAppSync(),
             4 => paginacaoServico.BuscarPaginacaoProduto(),
+            5 => paginacaoServico.BuscarPaginacaoProduto(),
             _ => false
         };
 

@@ -41,7 +41,7 @@ namespace Service
                     ultimaLeitura = item.DataRegistro;
                 }
 
-                var dataLimite = ultimaLeitura.Value.AddSeconds(Constantes.IntervaloPassagem);
+                var dataLimite = ultimaLeitura.Value.AddSeconds(ConstantesApp.IntervaloPassagem);
 
                 if (item.DataRegistro > dataLimite) //Se o intervalo for maior que o configurado, ele salva o que já existe e limpa a lista
                 {
@@ -75,7 +75,7 @@ namespace Service
             {
                     var itensRepetidosNoIntervalo = listaEpc
                         .Where(i => i.Hex == itemEpc.Hex && i != itemEpc)
-                        .Any(i => Math.Abs((i.DataRegistro - itemEpc.DataRegistro).TotalMinutes) < Constantes.IntervaloMinimoFalsoPositivo);
+                        .Any(i => Math.Abs((i.DataRegistro - itemEpc.DataRegistro).TotalMinutes) < ConstantesApp.IntervaloMinimoFalsoPositivo);
 
                     if (itensRepetidosNoIntervalo)
                         itemEpc.Alerta = false;
